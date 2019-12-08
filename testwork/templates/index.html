@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='jquery-3.4.1.min.js') }}"></script>
+</head>
+<body>
+    <div class="content">
+        <div class="block">
+            <table>
+                <thead>
+                    <th>тип рассчета</th>
+                    <th>min</th>
+                    <th>max</th>
+                    <th>avg</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>последние 100 записей</td>
+                        <td>{{ min.limit }}</td>
+                        <td>{{ max.limit }}</td>
+                        <td>{{ avg.limit }}</td>
+                    </tr>
+                    <tr>
+                        <td>все данные</td>
+                        <td>{{ min.all }}</td>
+                        <td>{{ max.all }}</td>
+                        <td>{{ avg.all }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="block">
+            {% include 'cpu.html' %}
+            {% if prev_url %}
+                <a href="{{ prev_url }}">Prev</a>
+            {% endif %}
+            {% if next_url %}
+                <a href="{{ next_url }}">Next</a>
+            {% endif %}
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='sort.js') }}"></script>
+</body>
+</html>

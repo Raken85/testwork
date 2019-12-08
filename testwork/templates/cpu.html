@@ -1,0 +1,14 @@
+<table id="cpu_usage" data-sort-field="{{ sort.field }}" data-sort-direction="{{ sort.direction }}">
+    <thead>
+        <th>id</th>
+        <th>usage</th>
+    </thead>
+    <tbody>
+        {% for c in cpus %}
+            <tr>
+                <td>{{ c.id }}</td>
+                <td>{{ c.usage }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
